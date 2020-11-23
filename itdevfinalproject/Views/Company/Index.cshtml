@@ -1,0 +1,66 @@
+﻿@model IEnumerable<itdevfinalproject.Models.Company>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkLifeBalance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TrainingTimesLastYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RelationshipSatisfaction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnvironmentSatisfaction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkLifeBalance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrainingTimesLastYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RelationshipSatisfaction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnvironmentSatisfaction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeNumber)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CompanyId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CompanyId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CompanyId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
